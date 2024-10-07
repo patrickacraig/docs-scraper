@@ -90,7 +90,7 @@ The script is designed to adhere to a rate limit of 10 scrapes per minute in adh
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## Contributing
 
