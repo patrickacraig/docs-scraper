@@ -58,8 +58,7 @@ The scraped content is saved into a markdown file named after the domain of the 
    ```
 
 ## Rate Limiting
-The script is designed to adhere to a rate limit of 10 scrapes per minute in adherence with the Firecrawl API free tier. To disable it, set the `LIMIT_RATE` environment variable to `False` in your `.env` file:```plaintext
-LIMIT_RATE=False```
+The script is designed to adhere to a rate limit of 10 scrapes per minute in adherence with the Firecrawl API free tier. To disable it, set the `LIMIT_RATE` environment variable to `False` in your `.env` file.
 
 ## Usage
 
