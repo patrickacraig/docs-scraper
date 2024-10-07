@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/docs-scraper.webp" alt="Docs Scraper" style="max-width: 300px;">
+</p>
+
 # Docs Scraper
 
 This project offers a Python script designed to map and scrape all URLs from a specified website using the Firecrawl API. The scraped content is saved into markdown files, which can then be provided to AI systems to offer context. This is particularly beneficial for AI code editors that need to gather comprehensive information from various websites. By analyzing the scraped content, the AI can better understand the structure and details of the information, thereby enhancing its ability to provide accurate code suggestions and improvements.
