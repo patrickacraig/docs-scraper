@@ -34,7 +34,7 @@ The scraped content is saved into a markdown file named after the domain of the 
 
    ```bash
    python -m venv .venv
-   source .venv/bin/activate  # On Windows use `firecrawl_env\Scripts\activate`
+   source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
    ```
 
 3. **Install Dependencies**
