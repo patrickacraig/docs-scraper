@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/docs-scraper.webp" alt="Docs Scraper" style="max-width: 300px;">
+  <img src="images/docs-scraper.webp" alt="Docs Scraper" width="300">
 </p>
 
 # Docs Scraper
