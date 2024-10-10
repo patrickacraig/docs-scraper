@@ -71,7 +71,7 @@ The script is designed to adhere to a rate limit of 10 scrapes per minute in adh
    Execute the script to start mapping and scraping the URLs:
 
    ```bash
-   python app.py
+   python core.py
    ```
 
 2. **Output**
@@ -80,17 +80,15 @@ The script is designed to adhere to a rate limit of 10 scrapes per minute in adh
 
 ## Alternative Usage: Web UI
 
+1. **Run the Script**
 
+   Alternatively, you can execute the script to run the web-based interface using Gradio:
 
-1.   **Run the Script**
+   ```bash
+   python app.py
+   ```
 
-      Alternatively, you can execute the script to run the web-based interface using Gradio:
-
-      ```bash
-      python web_ui.py
-      ```
-
-      This will launch a web interface in your default browser where you can enter the base URL, your Firecrawl API key, and choose whether to enable rate limiting. The output will be displayed directly in the browser.
+   This will launch a web interface in your default browser where you can enter the base URL, your Firecrawl API key, and choose whether to enable rate limiting. The output will be displayed directly in the browser.
 
 ## License
 
