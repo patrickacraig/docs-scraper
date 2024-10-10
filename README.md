@@ -1,3 +1,4 @@
+<!---
 ---
 title: Docs Scraper
 emoji: 🌍
@@ -10,6 +11,7 @@ pinned: false
 license: mit
 short_description: a gradio app to map and scrape all URLs from a given website
 ---
+-->
 
 <p align="center">
   <img src="images/docs-scraper.webp" alt="Docs Scraper" width="300">
