@@ -17,7 +17,7 @@ The scraped content is saved into a markdown file named after the domain of the 
 
 ## Prerequisites
 
-- Python 3.x
+- Python 3.11
 - <a href="https://firecrawl.dev/" target="_blank" rel="noopener noreferrer">Firecrawl API key</a>
 - Virtual environment (recommended)
 
