@@ -7,9 +7,13 @@ from urllib.parse import urlparse
 
 load_dotenv()
 
-base_url = os.getenv('BASE_URL')
+base_url = os.getenv('TARGET_URL')
 api_key = os.getenv('FIRECRAWL_API_KEY')
 limit_rate = os.getenv('LIMIT_RATE', 'False').lower() == 'true'
+
+print(f"base_url: {base_url}")
+print(f"api_key: {api_key}")
+print(f"limit_rate: {limit_rate}")
 
 # Get Firecrawl App instance
 def get_firecrawl_app(api_key):
@@ -33,6 +37,7 @@ async def async_scrape_url(app, url):
 def map_website(app, url):
     try:
         map_status = app.map_url(url)
+        print(f"Map status for {url}: {map_status}")
         if isinstance(map_status, list):
             return map_status
         else:
