@@ -108,13 +108,17 @@ with gr.Blocks() as iface:
     gr.Markdown("After entering your API key, click 'Count URLs' to determine the number of URLs to be scraped. Then, click 'Scrape URLs' to begin the process.")
     
     with gr.Row():
-        count_button = gr.Button("Count URLs")
-        url_count = gr.Textbox(label="URL Count")
+        with gr.Column(scale=1):
+            count_button = gr.Button("Count URLs")
+        with gr.Column(scale=1):
+            url_count = gr.Textbox(label="URL Count")
 
     with gr.Row():
-        scrape_button = gr.Button("Scrape URLs")
-        cancel_button = gr.Button("Cancel Scrape")
-        output = gr.Textbox(label="Output", elem_id="output_textbox")
+        with gr.Column(scale=1):
+            scrape_button = gr.Button("Scrape URLs")
+            cancel_button = gr.Button("Cancel Scrape")
+        with gr.Column(scale=1):
+            output = gr.Textbox(label="Output", elem_id="output_textbox")
     
     file_output = gr.File(label="Download Scraped Content")
     
