@@ -1,8 +1,8 @@
 ---
 title: Docs Scraper
 emoji: 🌍
-colorFrom: purple
-colorTo: orange
+colorFrom: yellow
+colorTo: red
 sdk: gradio
 sdk_version: 5.0.1
 app_file: app.py
