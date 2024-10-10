@@ -1,3 +1,16 @@
+---
+title: Docs Scraper
+emoji: 🌍
+colorFrom: purple
+colorTo: red
+sdk: gradio
+sdk_version: 5.0.1
+app_file: app.py
+pinned: false
+license: mit
+short_description: a gradio app to map and scrape all URLs from a given website
+---
+
 <p align="center">
   <img src="images/docs-scraper.webp" alt="Docs Scraper" width="300">
 </p>
@@ -102,17 +115,6 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 For any questions or issues, please open an issue in the repository.
 
----
-title: Docs Scraper
-emoji: 🌍
-colorFrom: purple
-colorTo: red
-sdk: gradio
-sdk_version: 5.0.1
-app_file: app.py
-pinned: false
-license: mit
-short_description: a gradio app to map and scrape all URLs from a given website
----
+
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
