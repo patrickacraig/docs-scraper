@@ -17,6 +17,8 @@ short_description: a gradio app to map and scrape all URLs from a given website
 
 # Docs Scraper
 
+[![Hugging Face Space](https://img.shields.io/badge/🤗-Hugging%20Face%20Space-blue)](https://huggingface.co/spaces/patrickacraig/docs-scraper)
+
 This project offers a Python script designed to map and scrape all URLs from a specified website using the Firecrawl API. The scraped content is saved into markdown files, which can then be provided to AI systems to offer context. This is particularly beneficial for AI code editors that need to gather comprehensive information from various websites. By analyzing the scraped content, the AI can better understand the structure and details of the information, thereby enhancing its ability to provide accurate code suggestions and improvements.
 
 Types of sites that would be useful to scrape include:
