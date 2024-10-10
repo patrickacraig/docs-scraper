@@ -1,6 +1,6 @@
 ---
 title: Docs Scraper
-emoji: 🌍
+emoji: 📙
 colorFrom: yellow
 colorTo: red
 sdk: gradio
