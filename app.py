@@ -37,55 +37,71 @@ def map_website(app, url):
         return []
 
 async def scrape_all_urls(base_url, api_key, limit_rate, progress=gr.Progress(), cancel_event=None):
-    app = get_firecrawl_app(api_key)
-    urls = map_website(app, base_url)
-    if not urls:
-        return "No URLs found. Please check if the base URL is correct.", None
+    try:
+        app = get_firecrawl_app(api_key)
+        urls = map_website(app, base_url)
+        if not urls:
+            return "No URLs found. Please check if the base URL is correct.", None
 
-    parsed_url = urlparse(base_url)
-    domain = parsed_url.netloc.replace("www.", "")
-    os.makedirs('scraped_documentation', exist_ok=True)
-    output_file = os.path.join('scraped_documentation', f"{domain}.md")
+        parsed_url = urlparse(base_url)
+        domain = parsed_url.netloc.replace("www.", "")
+        os.makedirs('scraped_documentation', exist_ok=True)
+        output_file = os.path.join('scraped_documentation', f"{domain}.md")
 
-    with open(output_file, 'w', encoding='utf-8') as md_file:
-        for i, url in enumerate(progress.tqdm(urls)):
-            if cancel_event and cancel_event.is_set():
-                return "Scraping cancelled.", None
-            progress(i / len(urls), f"Scraping {url}")
-            markdown_content = await async_scrape_url(app, url)
-            md_file.write(f"# {url}\n\n")
-            md_file.write(markdown_content)
-            md_file.write("\n\n---\n\n")
-            if limit_rate and (i + 1) % 10 == 0:
-                time.sleep(60)
+        with open(output_file, 'w', encoding='utf-8') as md_file:
+            for i, url in enumerate(progress.tqdm(urls)):
+                if cancel_event and cancel_event.is_set():
+                    return "Scraping cancelled.", None
+                progress(i / len(urls), f"Scraping {url}")
+                markdown_content = await async_scrape_url(app, url)
+                md_file.write(f"# {url}\n\n")
+                md_file.write(markdown_content)
+                md_file.write("\n\n---\n\n")
+                if limit_rate and (i + 1) % 10 == 0:
+                    time.sleep(60)
 
-    return f"Scraping completed. Output saved to {output_file}", output_file
+        return f"Scraping completed. Output saved to {output_file}", output_file
+    except Exception as e:
+        print(f"Error during scraping process: {e}")
+        return f"Error during scraping process: {e}", None
 
 def count_urls(base_url, api_key):
-    if not api_key:
-        return "Please enter your Firecrawl API key first."
-    app = get_firecrawl_app(api_key)
-    urls = map_website(app, base_url)
-    if urls:
-        return f"{len(urls)} URLs found. Do you want to proceed with scraping?"
-    else:
-        return "No URLs found. Please check the base URL or API key."
+    try:
+        if not api_key:
+            return "Please enter your Firecrawl API key first."
+        app = get_firecrawl_app(api_key)
+        urls = map_website(app, base_url)
+        if urls:
+            return f"{len(urls)} URLs found. Do you want to proceed with scraping?"
+        else:
+            return "No URLs found. Please check the base URL or API key."
+    except Exception as e:
+        print(f"Error counting URLs: {e}")
+        return f"Error counting URLs: {e}"
 
 async def gradio_scrape(base_url, api_key, limit_rate, progress=gr.Progress()):
-    if not api_key:
-        return "Please enter your Firecrawl API key.", None
-    if not base_url:
-        return "Please enter a base URL to scrape.", None
-    cancel_event = asyncio.Event()
-    result, file_path = await scrape_all_urls(base_url, api_key, limit_rate, progress, cancel_event)
-    return result, file_path
+    try:
+        if not api_key:
+            return "Please enter your Firecrawl API key.", None
+        if not base_url:
+            return "Please enter a base URL to scrape.", None
+        cancel_event = asyncio.Event()
+        result, file_path = await scrape_all_urls(base_url, api_key, limit_rate, progress, cancel_event)
+        return result, file_path
+    except Exception as e:
+        print(f"Error in gradio_scrape: {e}")
+        return f"Error in gradio_scrape: {e}", None
 
 def cancel_scrape():
-    # This function will be called when the cancel button is clicked
-    global cancel_event
-    if cancel_event:
-        cancel_event.set()
-    return "Cancelling scrape operation..."
+    try:
+        # This function will be called when the cancel button is clicked
+        global cancel_event
+        if cancel_event:
+            cancel_event.set()
+        return "Cancelling scrape operation..."
+    except Exception as e:
+        print(f"Error cancelling scrape: {e}")
+        return f"Error cancelling scrape: {e}"
 
 with gr.Blocks() as iface:
     gr.Markdown("# Docs Scraper")
