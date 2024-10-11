@@ -103,7 +103,7 @@ def cancel_scrape():
         print(f"Error cancelling scrape: {e}")
         return f"Error cancelling scrape: {e}"
 
-with gr.Blocks() as iface:
+with gr.Blocks(css="body { overflow-y: scroll; }") as iface:
     gr.Markdown("# Docs Scraper")
     gr.HTML('<a href="https://github.com/patrickacraig/docs-scraper" target="_blank" rel="noopener noreferrer">View on GitHub</a>')
     gr.Markdown("""
