@@ -105,6 +105,7 @@ def cancel_scrape():
 
 with gr.Blocks() as iface:
     gr.Markdown("# Docs Scraper")
+    gr.HTML('<a href="https://github.com/patrickacraig/docs-scraper" target="_blank" rel="noopener noreferrer">GitHub</a>')
     gr.Markdown("""
     ## Map and Scrape Website URLs with Firecrawl API
     Enter a base URL, your Firecrawl API key, and choose whether to limit the scraping rate.
